@@ -219,6 +219,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- [[ Set indentation for assembly ]]
+vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Set the indentation',
+  pattern = 'asm',
+  callback = function(opts)
+    vim.o.shiftwidth = 2
+    vim.o.softtabstop = 8
+    vim.o.expandtab = true
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
